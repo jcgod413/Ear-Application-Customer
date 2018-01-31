@@ -23,13 +23,20 @@ const IntroScreen = props => (
         style={styles.logo}
       />
       <View style={styles.buttonGroup}>
-        <TouchableOpacity style={styles.button} onPress={this.onPress}>
-          <Text>로그인</Text>
+        <TouchableOpacity
+          style={styles.button1}
+          onPress={() => props.navigation.navigate("Login")}
+        >
+          <Text style={styles.buttonText1}>로그인</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={this.onPress}>
-          <Text>회원가입</Text>
+        <TouchableOpacity
+          style={styles.button2}
+          onPress={() => props.navigation.navigate("Signup")}
+        >
+          <Text style={styles.buttonText2}>회원가입</Text>
         </TouchableOpacity>
       </View>
+      <Text style={styles.copyright}>@2017 sullivan</Text>
     </ImageBackground>
   </View>
 );
@@ -49,19 +56,49 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 296,
-    height: 205
+    height: 205,
+    marginTop: 109
   },
   buttonGroup: {
-    marginTop: 41
+    marginTop: 81
   },
-  button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10,
-    marginTop: 20,
+  button1: {
     width: 320,
     height: 52,
-    justifyContent: 'center',
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ffffff"
+  },
+  buttonText1: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#002f8d"
+  },
+  button2: {
+    width: 320,
+    height: 52,
+    borderRadius: 5,
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "#ffffff",
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 23
+  },
+  buttonText2: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#ffffff"
+  },
+  copyright: {
+    fontSize: 12,
+    marginTop: 81,
+    fontWeight: "normal",
+    fontStyle: "normal",
+    letterSpacing: 0,
+    textAlign: "center",
+    color: "#ffffff"
   }
 });
 
