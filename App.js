@@ -8,8 +8,8 @@ import configureStore from "./redux/configureStore";
 import AppContainer from "./components/AppContainer";
 
 const { persistor, store } = configureStore();
-// store.dispatch({ type: "LOG_IN", token: "" });
-store.dispatch({ type: "LOG_OUT" });
+// store.dispatch({ type: "LOG_IN", token: "" }); // auto login
+// store.dispatch({ type: "LOG_OUT" }); // auto logout
 
 class App extends React.Component {
   state = {
@@ -36,7 +36,10 @@ class App extends React.Component {
   }
   _loadAssetsAsync = async () => {
     return Promise.all([
-      Asset.loadAsync([require("./assets/images/logo-white.png")]),
+      Asset.loadAsync([
+        require("./assets/images/logo-white.png"),
+        require("./assets/images/noProfile.png")
+      ]),
       Font.loadAsync({
         ...Ionicons.font,
         ...MaterialIcons.font

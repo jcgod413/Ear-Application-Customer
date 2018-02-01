@@ -94,12 +94,12 @@ const SignupScreen = props => (
         <Text style={styles.moreText}>내용보기</Text>
       </View>
       <TouchableOpacity
-        style={styles.signinButton}
+        style={styles.signupButton}
         onPress={() => {
-          this._onPressButton("signin");
+          this._onPressButton("signup");
         }}
       >
-        <Text style={styles.signinText}>가입하기</Text>
+        <Text style={styles.signupText}>가입하기</Text>
       </TouchableOpacity>
     </ScrollView>
   </View>
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     marginTop: 13,
     textDecorationLine: "underline"
   },
-  signinButton: {
+  signupButton: {
     width: width-40,
     height: 52,
     borderRadius: 5,
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20
   },
-  signinText: {
+  signupText: {
     fontSize: 18,
     fontWeight: "bold",
     fontStyle: "normal",
