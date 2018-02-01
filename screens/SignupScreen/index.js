@@ -9,7 +9,7 @@ import {
   StatusBar,
   Picker,
   ScrollView,
-  TouchableHighlight
+  TouchableOpacity
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import SimplePicker from "react-native-simple-picker";
@@ -21,12 +21,12 @@ const SignupScreen = props => (
     <StatusBar barStyle={"dark-content"} />
     <View style={styles.header}>
       <Text style={styles.title}>회원가입</Text>
-      <TouchableHighlight
+      <TouchableOpacity
         style={styles.close}
         onPress={() => props.navigation.goBack()}
       >
         <Ionicons name={"md-close"} color={"#4a4a4a"} size={24} />
-      </TouchableHighlight>
+      </TouchableOpacity>
     </View>
     <ScrollView>
       <View style={styles.body1}>
@@ -93,14 +93,14 @@ const SignupScreen = props => (
         <Text style={styles.agreeText}>개인정보 수집이용 동의 (필수)</Text>
         <Text style={styles.moreText}>내용보기</Text>
       </View>
-      <TouchableHighlight
+      <TouchableOpacity
         style={styles.signinButton}
         onPress={() => {
           this._onPressButton("signin");
         }}
       >
         <Text style={styles.signinText}>가입하기</Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
     </ScrollView>
   </View>
 );

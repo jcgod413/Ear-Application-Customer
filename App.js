@@ -8,6 +8,8 @@ import configureStore from "./redux/configureStore";
 import AppContainer from "./components/AppContainer";
 
 const { persistor, store } = configureStore();
+// store.dispatch({ type: "LOG_IN", token: "" });
+store.dispatch({ type: "LOG_OUT" });
 
 class App extends React.Component {
   state = {
