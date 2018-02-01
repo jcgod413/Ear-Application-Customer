@@ -48,6 +48,10 @@ function login(phone, password) {
   };
 }
 
+function getOwnProfile() {
+  
+}
+
 // Initial State
 const initialState = {
   isLoggedIn: false
