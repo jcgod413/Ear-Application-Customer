@@ -30,7 +30,7 @@ const HomeScreen = props => (
         </TouchableOpacity>
         <View style={styles.splitter} />
         <TouchableOpacity style={styles.button}>
-          <Ionicons name={"ios-construct"} color={"#6a6a6a"} size={25} />
+          <Ionicons name={"ios-cog"} color={"#8a8a8a"} size={25} />
           <Text style={styles.buttonText}>설정</Text>
         </TouchableOpacity>
       </View>
