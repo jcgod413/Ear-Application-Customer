@@ -70,6 +70,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center"
   },
+  shadow: {
+    shadowOpacity: 0.75,
+    shadowRadius: 5,
+    shadowColor: "red",
+    shadowOffset: { height: 0, width: 0 }
+  },
   avatar: {
     height: 72,
     width: 72,

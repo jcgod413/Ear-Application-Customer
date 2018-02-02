@@ -16,7 +16,6 @@ class Container extends Component {
     );
   }
   _reservation = () => {
-    console.log("reservation");
     this.props.navigation.navigate("Reservation");
   };
 }

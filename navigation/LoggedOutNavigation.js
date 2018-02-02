@@ -20,7 +20,7 @@ const LoggedOutNavigation = StackNavigator(
     Signup: {
       screen: SignupScreen,
       navigationOptions: {
-        header: null,
+        header: null
       }
     }
   },
