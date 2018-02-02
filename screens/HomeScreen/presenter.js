@@ -50,9 +50,7 @@ const HomeScreen = props => (
     <View style={styles.reservationList} />
     <TouchableOpacity
       style={styles.reservationButton}
-      onPress={() => {
-        this._onPressButton("reservation");
-      }}
+      onPress={props.reservation}
     >
       <Text style={styles.reservationButtonText}>예약하기</Text>
     </TouchableOpacity>

@@ -13,7 +13,6 @@ const LoggedOutNavigation = StackNavigator(
     },
     Login: {
       screen: LoginScreen,
-      mode: "modal",
       navigationOptions: {
         header: null
       }
@@ -22,7 +21,6 @@ const LoggedOutNavigation = StackNavigator(
       screen: SignupScreen,
       navigationOptions: {
         header: null,
-        mode: "modal"
       }
     }
   },
