@@ -4,7 +4,9 @@ import {
   Text,
   StatusBar,
   TouchableOpacity,
+  KeyboardAvoidingView,
   Dimensions,
+  TextInput,
   StyleSheet
 } from "react-native";
 import ProgressBarAnimated from "react-native-progress-bar-animated";
@@ -19,7 +21,7 @@ const progressStyles = {
 };
 
 const ReservationScreen = props => (
-  <View style={styles.container}>
+  <KeyboardAvoidingView style={styles.container} behavior="padding">
     <StatusBar barStyle="light-content" />
     <View style={styles.status} />
     <ProgressBarAnimated
@@ -43,6 +45,11 @@ const ReservationScreen = props => (
       <Text style={styles.headerTitle}>{props.getHeaderTitle(props.step)}</Text>
     </View>
 
+    <View style={{ flex: 1 }}>
+      <TextInput placeholder="입력해주세요"
+          style={{height: 60}} />
+    </View>
+
     {props.step < props.totalStep ? (
       <View style={styles.buttonGroup}>
         {props.step > 0 ? (
@@ -55,7 +62,7 @@ const ReservationScreen = props => (
         </TouchableOpacity>
       </View>
     ) : null}
-  </View>
+  </KeyboardAvoidingView>
 );
 
 const styles = StyleSheet.create({
@@ -96,7 +103,7 @@ const styles = StyleSheet.create({
     color: "white",
     lineHeight: 35,
     marginLeft: 20,
-    marginTop: 13,
+    marginTop: 13
   },
   close: {
     width: 24,
@@ -109,7 +116,8 @@ const styles = StyleSheet.create({
   buttonGroup: {
     width,
     height: 52,
-    flexDirection: "row"
+    flexDirection: "row",
+    alignSelf: "baseline"
   },
   prevButton: {
     flex: 1,

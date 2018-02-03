@@ -9,7 +9,8 @@ import {
   StatusBar,
   Picker,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  KeyboardAvoidingView
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import SimplePicker from "react-native-simple-picker";
@@ -17,7 +18,7 @@ import SimplePicker from "react-native-simple-picker";
 const { width, height } = Dimensions.get("window");
 
 const SignupScreen = props => (
-  <View style={styles.container}>
+  <KeyboardAvoidingView style={styles.container} behavior="padding">
     <StatusBar barStyle={"dark-content"} />
     <View style={styles.header}>
       <Text style={styles.title}>회원가입</Text>
@@ -102,7 +103,7 @@ const SignupScreen = props => (
         <Text style={styles.signupText}>가입하기</Text>
       </TouchableOpacity>
     </ScrollView>
-  </View>
+  </KeyboardAvoidingView>
 );
 
 const styles = StyleSheet.create({
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline"
   },
   signupButton: {
-    width: width-40,
+    width: width - 40,
     height: 52,
     borderRadius: 5,
     backgroundColor: "#4990e2",
@@ -199,7 +200,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 23,
     marginLeft: 20,
-    marginRight: 20
+    marginRight: 20,
+    marginBottom: 40
   },
   signupText: {
     fontSize: 18,
@@ -208,7 +210,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0,
     textAlign: "center",
     color: "#ffffff"
-  },
+  }
 });
 
 export default SignupScreen;
