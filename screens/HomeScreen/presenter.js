@@ -24,12 +24,12 @@ const HomeScreen = props => (
       </FadeIn>
 
       <View style={styles.buttonGroup}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={props.reservationList}>
           <Ionicons name={"ios-paper-outline"} color={"#4a4a4a"} size={25} />
           <Text style={styles.buttonText}>지난 예약</Text>
         </TouchableOpacity>
         <View style={styles.splitter} />
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={props.setting}>
           <Ionicons name={"ios-cog"} color={"#8a8a8a"} size={25} />
           <Text style={styles.buttonText}>설정</Text>
         </TouchableOpacity>

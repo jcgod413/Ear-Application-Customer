@@ -12,11 +12,19 @@ class Container extends Component {
         profileObject={profile}
         refresh={getOwnProfile}
         reservation={this._reservation}
+        reservationList={this._reservationList}
+        setting={this._setting}
       />
     );
   }
   _reservation = () => {
     this.props.navigation.navigate("Reservation");
+  };
+  _reservationList = () => {
+    this.props.navigation.navigate("ReservationList");
+  };
+  _setting = () => {
+    this.props.navigation.navigate("Setting");
   };
 }
 

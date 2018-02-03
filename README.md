@@ -1,2 +1,2 @@
 # Ear-Application-Customer
-Ear Application made by React Native, Redux, Expo XDE
+Ear Application made with React Native, Redux, Expo XDE
