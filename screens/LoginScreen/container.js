@@ -6,6 +6,7 @@ class Container extends Component {
   state = {
     phone: "",
     password: "",
+    isInputed: false,
     isSubmitting: false
   };
   render() {
@@ -21,9 +22,21 @@ class Container extends Component {
   }
   _changePhone = text => {
     this.setState({ phone: text });
+
+    if (text && this.state.password) {
+      this.setState({ isInputed: true });
+    } else {
+      this.setState({ isInputed: false });
+    }
   };
   _changePassword = text => {
     this.setState({ password: text });
+
+    if (text && this.state.phone) {
+      this.setState({ isInputed: true });
+    } else {
+      this.setState({ isInputed: false });
+    }
   };
   _submit = async () => {
     const { phone, password, isSubmitting } = this.state;

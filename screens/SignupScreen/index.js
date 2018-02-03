@@ -94,6 +94,8 @@ const SignupScreen = props => (
         <Text style={styles.agreeText}>개인정보 수집이용 동의 (필수)</Text>
         <Text style={styles.moreText}>내용보기</Text>
       </View>
+
+      <View style={{ flex: 1 }} />
       <TouchableOpacity
         style={styles.signupButton}
         onPress={() => {
@@ -146,7 +148,8 @@ const styles = StyleSheet.create({
     width,
     alignItems: "flex-start",
     marginTop: 17,
-    marginLeft: 33
+    marginLeft: 33,
+    marginBottom: 50
   },
   textInput: {
     height: 60,
@@ -192,16 +195,10 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline"
   },
   signupButton: {
-    width: width - 40,
     height: 52,
-    borderRadius: 5,
     backgroundColor: "#4990e2",
     alignItems: "center",
-    justifyContent: "center",
-    marginTop: 23,
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 40
+    justifyContent: "center"
   },
   signupText: {
     fontSize: 18,
