@@ -66,7 +66,7 @@ const ReservationScreen = props => (
 
     {props.step < props.totalStep ? (
       <View style={styles.buttonGroup}>
-        {props.step > 0 ? (
+        {props.step > 1 ? (
           <TouchableOpacity style={styles.prevButton} onPressOut={props.prev}>
             <Text style={styles.buttonText}>이전</Text>
           </TouchableOpacity>
