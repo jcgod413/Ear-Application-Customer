@@ -9,9 +9,11 @@ import {
   TextInput,
   StyleSheet
 } from "react-native";
-import ProgressBarAnimated from "react-native-progress-bar-animated";
 import { Ionicons } from "@expo/vector-icons";
-
+import { Calendar } from "react-native-calendars";
+import ProgressBarAnimated from "react-native-progress-bar-animated";
+import DatePickScreen from "../DatePickScreen";
+ 
 const { width, height } = Dimensions.get("window");
 
 const progressStyles = {
@@ -46,8 +48,20 @@ const ReservationScreen = props => (
     </View>
 
     <View style={{ flex: 1 }}>
-      <TextInput placeholder="입력해주세요"
-          style={{height: 60}} />
+      {(() => {
+        switch (props.step) {
+          case 1:
+            return <DatePickScreen {...props} />;
+          case 2:
+            return <TextInput placeholder="위치" style={{ height: 60 }} />;
+          case 3:
+            return <TextInput placeholder="목적" style={{ height: 60 }} />;
+          case 4:
+            return <TextInput placeholder="메시지" style={{ height: 60 }} />;
+          default:
+            return <TextInput placeholder="결과" style={{ height: 60 }} />;
+        }
+      })()}
     </View>
 
     {props.step < props.totalStep ? (
