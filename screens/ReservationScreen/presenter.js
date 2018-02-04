@@ -13,6 +13,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { Calendar } from "react-native-calendars";
 import ProgressBarAnimated from "react-native-progress-bar-animated";
 import DatePickScreen from "../DatePickScreen";
+import LocationPickScreen from "../LocationPickScreen";
+import PurposePickScreen from "../PurposePickScreen";
+import ExtraMessageScreen from "../ExtraMessageScreen";
+import ReservationResultScreen from "../ReservationResultScreen";
+
  
 const { width, height } = Dimensions.get("window");
 
@@ -53,13 +58,13 @@ const ReservationScreen = props => (
           case 1:
             return <DatePickScreen {...props} />;
           case 2:
-            return <TextInput placeholder="위치" style={{ height: 60 }} />;
+            return <LocationPickScreen {...props} />;
           case 3:
-            return <TextInput placeholder="목적" style={{ height: 60 }} />;
+            return <PurposePickScreen {...props} />;
           case 4:
-            return <TextInput placeholder="메시지" style={{ height: 60 }} />;
+            return <ExtraMessageScreen {...props} />;
           default:
-            return <TextInput placeholder="결과" style={{ height: 60 }} />;
+            return <ReservationResultScreen {...props} />;
         }
       })()}
     </View>
