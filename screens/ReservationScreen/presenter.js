@@ -10,7 +10,8 @@ import {
   StyleSheet
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { Calendar } from "react-native-calendars";
+import { Calendar, LocaleConfig } from "react-native-calendars";
+import { monthNames, dayNames, dayNamesShort } from "../../constants";
 import ProgressBarAnimated from "react-native-progress-bar-animated";
 import DatePickScreen from "../DatePickScreen";
 import LocationPickScreen from "../LocationPickScreen";
@@ -18,7 +19,13 @@ import PurposePickScreen from "../PurposePickScreen";
 import ExtraMessageScreen from "../ExtraMessageScreen";
 import ReservationResultScreen from "../ReservationResultScreen";
 
- 
+LocaleConfig.locales["kr"] = {
+  monthNames,
+  dayNames,
+  dayNamesShort
+};
+LocaleConfig.defaultLocale = "kr";
+
 const { width, height } = Dimensions.get("window");
 
 const progressStyles = {

@@ -1,36 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ReservationScreen from "./presenter";
-import { LocaleConfig } from "react-native-calendars";
-
-LocaleConfig.locales["kr"] = {
-  monthNames: [
-    "1월",
-    "2월",
-    "3월",
-    "4월",
-    "5월",
-    "6월",
-    "7월",
-    "8월",
-    "9월",
-    "10월",
-    "11월",
-    "12월"
-  ],
-  dayNames: [
-    "월요일",
-    "화요일",
-    "수요일",
-    "목요일",
-    "금요일",
-    "토요알",
-    "일요일"
-  ],
-  dayNamesShort: ["월", "화", "수", "목", "금", "토", "일"]
-};
-
-LocaleConfig.defaultLocale = "kr";
 
 class Container extends Component {
   constructor(props) {
@@ -49,7 +19,8 @@ class Container extends Component {
       endHour: 0,
       endMinutes: 0,
       startTimeText: "00:00",
-      endTimeText: "00:00"
+      endTimeText: "00:00",
+      extraMessage: ""
     };
   }
   render() {
@@ -66,6 +37,7 @@ class Container extends Component {
         pressedEndTime={this._pressedEndTime}
         pickStartTime={this._pickStartTime}
         pickEndTime={this._pickEndTime}
+        inputExtraMessage={this._inputExtraMessage}
       />
     );
   }
@@ -155,20 +127,31 @@ class Container extends Component {
     }
   };
   _pickStartTime = (hours, minutes) => {
-    const timeText = (hours < 10 ? "0"+hours : hours) + ":" + (minutes < 10 ? "0"+minutes : minutes);
+    const timeText =
+      (hours < 10 ? "0" + hours : hours) +
+      ":" +
+      (minutes < 10 ? "0" + minutes : minutes);
     this.setState({
       startHour: hours,
       startMinutes: minutes,
       startTimeText: timeText
-    })
+    });
   };
   _pickEndTime = (hours, minutes) => {
-    const timeText = (hours < 10 ? "0"+hours : hours) + ":" + (minutes < 10 ? "0"+minutes : minutes);
+    const timeText =
+      (hours < 10 ? "0" + hours : hours) +
+      ":" +
+      (minutes < 10 ? "0" + minutes : minutes);
     this.setState({
       endHour: hours,
       endMinutes: minutes,
       endTimeText: timeText
-    })
+    });
+  };
+  _inputExtraMessage = (text) => {
+    this.setState({
+      extraMessage: text
+    });
   };
 }
 

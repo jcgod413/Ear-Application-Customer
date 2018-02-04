@@ -21,8 +21,13 @@ const DatePickScreen = props => (
       <Ionicons name={"md-calendar"} color={"#8a8a8a"} size={32} />
       <View style={{ width: 28 }} />
       <LinedText text={props.selectedDateText} onPress={props.pressedDate} />
-      <View style={{ width: 28 }} />
-      <Ionicons name={"ios-arrow-down"} color={"#8a8a8a"} size={24} />
+      <View style={{ width: 15 }} />
+      {props.dateMode === "Date" ? (
+        <Ionicons name={"ios-arrow-up"} color={"#8a8a8a"} size={24} />
+      ) : (
+        <Ionicons name={"ios-arrow-down"} color={"#8a8a8a"} size={24} />
+      )}
+      
     </View>
     {props.dateMode === "Date" ? (
       <View style={styles.calendarContainer}>
