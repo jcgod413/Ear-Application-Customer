@@ -8,7 +8,8 @@ import {
   Dimensions,
   StatusBar,
   ActivityIndicator,
-  TouchableOpacity
+  TouchableOpacity,
+  KeyboardAvoidingView
 } from "react-native";
 import PropTypes from "prop-types";
 import { Ionicons } from "@expo/vector-icons";
@@ -16,7 +17,7 @@ import { Ionicons } from "@expo/vector-icons";
 const { width, height } = Dimensions.get("window");
 
 const LoginScreen = props => (
-  <View style={styles.container}>
+  <KeyboardAvoidingView style={styles.container} behavior="padding">
     <StatusBar barStyle={"dark-content"} />
     <View style={styles.header}>
       <Text style={styles.title}>로그인</Text>
@@ -61,17 +62,31 @@ const LoginScreen = props => (
         <View style={[styles.line, styles.inactive]} />
       )}
     </View>
+    <Text style={styles.footerText}>비밀번호를 잊으셨나요?</Text>
+    <View style={{ flex: 1 }} />
     <View style={styles.footer}>
-      <Text style={styles.footerText}>비밀번호를 잊으셨나요?</Text>
-      <TouchableOpacity style={styles.signinButton} onPressOut={props.submit}>
+      <TouchableOpacity
+        style={[
+          styles.signinButton,
+          props.isInputed ? styles.activeButton : styles.inactiveButton
+        ]}
+        onPressOut={props.submit}
+      >
         {props.isSubmitting ? (
           <ActivityIndicator size="small" color="white" />
         ) : (
-          <Text style={styles.signinText}>로그인</Text>
+          <Text
+            style={[
+              styles.signinText,
+              props.isInputed ? null : styles.inactiveButtonText
+            ]}
+          >
+            로그인
+          </Text>
         )}
       </TouchableOpacity>
     </View>
-  </View>
+  </KeyboardAvoidingView>
 );
 
 LoginScreen.propTypes = {
@@ -142,26 +157,29 @@ const styles = StyleSheet.create({
     borderWidth: 1
   },
   active: {
-    borderColor: "#4990e2",
+    borderColor: "#4990e2"
   },
   inactive: {
     borderColor: "rgba(0, 0, 0, 0.06)"
   },
+  activeButton: {
+    backgroundColor: "#4990e2"
+  },
+  inactiveButton: {
+    backgroundColor: "#d8d8d8"
+  },
+  inactiveButtonText: {
+    color: "#9b9b9b"
+  },
   footer: {
-    flex: 1,
     marginTop: 3,
     alignSelf: "stretch",
     flexDirection: "column"
   },
   signinButton: {
     height: 52,
-    borderRadius: 5,
-    backgroundColor: "#4990e2",
     alignItems: "center",
-    justifyContent: "center",
-    marginTop: 23,
-    marginLeft: 20,
-    marginRight: 20
+    justifyContent: "center"
   },
   signinText: {
     fontSize: 18,
