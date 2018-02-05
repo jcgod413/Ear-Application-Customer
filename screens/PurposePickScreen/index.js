@@ -1,17 +1,29 @@
 import React from "react";
-import { View, Text, Dimensions, StyleSheet } from "react-native";
+import { ScrollView, Text, Dimensions, StyleSheet } from "react-native";
+import PurposeBox from "../../components/PurposeBox";
+import { purposeList } from "../../constants";
 
 const { width, height } = Dimensions.get("window");
 
 const PurposePickScreen = props => (
-  <View style={styles.container}>
-    <Text>PurposePickScreen!</Text>
-  </View>
+  <ScrollView style={styles.container}>
+    {purposeList.map(purpose => (
+      <PurposeBox
+        key={purpose.name}
+        purpose={purpose}
+        checked={props.checkedPurpose === purpose.name ? true : false}
+        opened={true}
+        pressedPurpose={props.pressedPurpose}
+        pressedContents={props.pressedContents}
+      />
+    ))}
+  </ScrollView>
 );
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    paddingTop: 12,
+    backgroundColor: "#fafafa"
   }
 });
 

@@ -20,7 +20,10 @@ class Container extends Component {
       endMinutes: 0,
       startTimeText: "00:00",
       endTimeText: "00:00",
-      extraMessage: ""
+      checkedPurpose: "",
+      extraMessage: "",
+      openedPurpose: {},
+      noti: false
     };
   }
   render() {
@@ -37,7 +40,10 @@ class Container extends Component {
         pressedEndTime={this._pressedEndTime}
         pickStartTime={this._pickStartTime}
         pickEndTime={this._pickEndTime}
+        pressedPurpose={this._pressedPurpose}
+        pressedContents={this._pressedContents}
         inputExtraMessage={this._inputExtraMessage}
+        notiSwitched={this._notiSwitched}
       />
     );
   }
@@ -148,9 +154,45 @@ class Container extends Component {
       endTimeText: timeText
     });
   };
-  _inputExtraMessage = (text) => {
+  _inputExtraMessage = text => {
     this.setState({
       extraMessage: text
+    });
+  };
+  _pressedPurpose = purpose => {
+    // this.setState({
+    //   checkedPurpose: (purpose === this.state.pressedPurpose) ? "" : purpose
+    // });
+    if (this.state.checkedPurpose === purpose) {
+      this.setState({
+        checkedPurpose: ""
+      });
+    } else {
+      this.setState({
+        checkedPurpose: purpose
+      });
+    }
+  };
+  _pressedContents = purpose => {
+    console.log("_pressedContents");
+    var opened = this.state.openedPurpose;
+    if (this.state.openedPurpose[purpose] === true) {
+      opened[purpose] = false;
+      this.setState({
+        openedPurpose: opened
+      });
+    } else {
+      opened[purpose] = false;
+      this.setState({
+        openedPurpose: opened
+      });
+    }
+    console.log(this.state.openedPurpose);
+  };
+  _notiSwitched = noti => {
+    console.log(noti);
+    this.setState({
+      noti
     });
   };
 }

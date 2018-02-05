@@ -87,7 +87,16 @@ const ReservationScreen = props => (
           <Text style={styles.buttonText}>다음</Text>
         </TouchableOpacity>
       </View>
-    ) : null}
+    ) : (
+      <View style={styles.buttonGroup}>
+        <TouchableOpacity
+          style={styles.nextButton}
+          onPressOut={() => props.navigation.goBack()}
+        >
+          <Text style={styles.buttonText}>홈으로</Text>
+        </TouchableOpacity>
+      </View>
+    )}
   </KeyboardAvoidingView>
 );
 

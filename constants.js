@@ -25,4 +25,14 @@ export const dayNames = [
   "일요일"
 ];
 
+export const purposeList = [
+  {name: "일상생활", contents: "일상생활 Detail"},
+  {name: "의료", contents: "의료 Detail"},
+  {name: "금융", contents: "금융 Detail"},
+  {name: "법률", contents: "법률 Detail"},
+  {name: "단체통역", contents: "단체통역 Detail"},
+  {name: "종교", contents: "종교 Detail"},
+  {name: "기타", contents: "기타 Detail"}
+];
+
 export const dayNamesShort = ["월", "화", "수", "목", "금", "토", "일"];
