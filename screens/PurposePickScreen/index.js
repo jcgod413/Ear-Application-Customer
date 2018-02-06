@@ -12,9 +12,9 @@ const PurposePickScreen = props => (
         key={purpose.name}
         purpose={purpose}
         checked={props.checkedPurpose === purpose.name ? true : false}
-        opened={true}
+        opened={props.openedPurpose[purpose.name]}
         pressedPurpose={props.pressedPurpose}
-        pressedContents={props.pressedContents}
+        pressedPurposeContents={props.pressedPurposeContents}
       />
     ))}
   </ScrollView>

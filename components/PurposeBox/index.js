@@ -30,7 +30,7 @@ const PurposeBox = props => (
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.nameGroup}
-        onPress={props.pressedContents.bind(this, props.purpose.name)}
+        onPress={props.pressedPurposeContents.bind(this, props.purpose.name)}
       >
         <Text style={props.checked ? styles.checkedName : styles.name}>
           {props.purpose.name}

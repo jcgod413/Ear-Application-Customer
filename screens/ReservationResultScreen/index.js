@@ -7,7 +7,21 @@ const ReservationResultScreen = props => (
   <View style={styles.container}>
     <View style={styles.infoContainer}>
       <Text style={styles.title}>예약 일시</Text>
-      <Text style={styles.contents}>{props.selectedDateText}</Text>
+      <Text style={styles.contents}>
+        {props.selectedDateText +
+          "  " +
+          (props.startHour < 10 ? "0" : null) +
+          props.startHour +
+          ":" +
+          (props.startMinutes < 10 ? "0" : null) +
+          props.startMinutes +
+          " - " +
+          (props.endHour < 10 ? "0" : null) +
+          props.endHour +
+          ":" +
+          (props.endMinutes < 10 ? "0" : null) +
+          props.endMinutes}
+      </Text>
       <Text style={styles.title}>예약 장소</Text>
       <Text style={styles.contents}>장소</Text>
       <Text style={styles.title}>예약 목적</Text>
@@ -18,7 +32,11 @@ const ReservationResultScreen = props => (
 
     <View style={styles.notiContainer}>
       <Text style={styles.notiText}>예약 확정 알람받기</Text>
-      <Switch style={styles.notiSwitch} value={props.noti} onValueChange={props.notiSwitched}/>
+      <Switch
+        style={styles.notiSwitch}
+        value={props.noti}
+        onValueChange={props.notiSwitched}
+      />
     </View>
   </View>
 );

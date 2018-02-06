@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ReservationScreen from "./presenter";
+import { purposeList } from "../../constants";
 
 class Container extends Component {
   constructor(props) {
     super(props);
     const today = this._getCurrentDate();
     const todayText = this._changeDateToText(today);
+
+    // var openedPurpose = {};
+    // purposeList.map(purpose => {
+    //   openedPurpose[purpose.name] = false;
+    // });
 
     this.state = {
       step: 1,
@@ -21,8 +27,8 @@ class Container extends Component {
       startTimeText: "00:00",
       endTimeText: "00:00",
       checkedPurpose: "",
-      extraMessage: "",
       openedPurpose: {},
+      extraMessage: "",
       noti: false
     };
   }
@@ -41,7 +47,7 @@ class Container extends Component {
         pickStartTime={this._pickStartTime}
         pickEndTime={this._pickEndTime}
         pressedPurpose={this._pressedPurpose}
-        pressedContents={this._pressedContents}
+        pressedPurposeContents={this._pressedPurposeContents}
         inputExtraMessage={this._inputExtraMessage}
         notiSwitched={this._notiSwitched}
       />
@@ -160,9 +166,6 @@ class Container extends Component {
     });
   };
   _pressedPurpose = purpose => {
-    // this.setState({
-    //   checkedPurpose: (purpose === this.state.pressedPurpose) ? "" : purpose
-    // });
     if (this.state.checkedPurpose === purpose) {
       this.setState({
         checkedPurpose: ""
@@ -173,21 +176,16 @@ class Container extends Component {
       });
     }
   };
-  _pressedContents = purpose => {
-    console.log("_pressedContents");
-    var opened = this.state.openedPurpose;
-    if (this.state.openedPurpose[purpose] === true) {
-      opened[purpose] = false;
-      this.setState({
-        openedPurpose: opened
-      });
-    } else {
-      opened[purpose] = false;
-      this.setState({
-        openedPurpose: opened
-      });
-    }
-    console.log(this.state.openedPurpose);
+  _pressedPurposeContents = purpose => {
+    var openedPurpose = this.state.openedPurpose;
+    if (
+      openedPurpose[purpose] === undefined ||
+      openedPurpose[purpose] === false
+    )
+      openedPurpose[purpose] = true;
+    else openedPurpose[purpose] = false;
+
+    this.setState({ openedPurpose });
   };
   _notiSwitched = noti => {
     console.log(noti);
