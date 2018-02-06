@@ -76,27 +76,61 @@ const ReservationScreen = props => (
       })()}
     </View>
 
-    {props.step < props.totalStep ? (
-      <View style={styles.buttonGroup}>
-        {props.step > 1 ? (
-          <TouchableOpacity style={styles.prevButton} onPressOut={props.prev}>
-            <Text style={styles.buttonText}>이전</Text>
-          </TouchableOpacity>
-        ) : null}
-        <TouchableOpacity style={styles.nextButton} onPressOut={props.next}>
-          <Text style={styles.buttonText}>다음</Text>
-        </TouchableOpacity>
-      </View>
-    ) : (
-      <View style={styles.buttonGroup}>
-        <TouchableOpacity
-          style={styles.nextButton}
-          onPressOut={() => props.navigation.goBack()}
-        >
-          <Text style={styles.buttonText}>홈으로</Text>
-        </TouchableOpacity>
-      </View>
-    )}
+    <View style={styles.buttonGroup}>
+      {(() => {
+        switch (props.step) {
+          case 1:
+          case 2:
+          case 3:
+            return (
+              <View style={styles.buttonGroup}>
+                <TouchableOpacity
+                  style={styles.prevButton}
+                  onPressOut={props.prev}
+                >
+                  <Text style={styles.buttonText}>이전</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.nextButton}
+                  onPressOut={props.next}
+                >
+                  <Text style={styles.buttonText}>다음</Text>
+                </TouchableOpacity>
+              </View>
+            );
+          case 4:
+            return (
+              <View style={styles.buttonGroup}>
+                <TouchableOpacity
+                  style={styles.prevButton}
+                  onPressOut={props.prev}
+                >
+                  <Text style={styles.buttonText}>이전</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.nextButton}
+                  onPressOut={props.next}
+                >
+                  <Text style={styles.buttonText}>
+                    {props.extraMessage ? "완료" : "없어요. 완료할래요."}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            );
+          case 5:
+            return (
+              <View style={styles.buttonGroup}>
+                <TouchableOpacity
+                  style={styles.nextButton}
+                  onPressOut={() => props.navigation.goBack()}
+                >
+                  <Text style={styles.buttonText}>홈으로</Text>
+                </TouchableOpacity>
+              </View>
+            );
+        }
+      })()}
+    </View>
   </KeyboardAvoidingView>
 );
 
