@@ -12,7 +12,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
 
-const ReservationListScreen = props => (
+const ReservationCompletionsListScreen = props => (
   <View style={styles.container} behavior="padding">
     <StatusBar barStyle="light-content" />
     <View style={styles.status} />
@@ -24,7 +24,7 @@ const ReservationListScreen = props => (
         <Ionicons name={"md-close"} color={"white"} size={24} />
       </TouchableOpacity>
       <View style={styles.titleContainer}>
-      <Text style={styles.headerTitle}>진행중인 예약</Text>
+      <Text style={styles.headerTitle}>지난 예약</Text>
       <Text style={styles.reservationCount}>0</Text>
       </View>
     </View>
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ReservationListScreen;
+export default ReservationCompletionsListScreen;

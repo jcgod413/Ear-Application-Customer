@@ -13,6 +13,7 @@ class Container extends Component {
         refresh={getOwnProfile}
         reservation={this._reservation}
         reservationList={this._reservationList}
+        reservationCompletionsList={this._reservationCompletionsList}
         setting={this._setting}
       />
     );
@@ -22,6 +23,9 @@ class Container extends Component {
   };
   _reservationList = () => {
     this.props.navigation.navigate("ReservationList");
+  };
+  _reservationCompletionsList = () => {
+    this.props.navigation.navigate("ReservationCompletionsList");
   };
   _setting = () => {
     this.props.navigation.navigate("Setting");

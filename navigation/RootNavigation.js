@@ -2,6 +2,7 @@ import { StackNavigator } from "react-navigation";
 import HomeScreen from "../screens/HomeScreen";
 import ReservationScreen from "../screens/ReservationScreen";
 import ReservationListScreen from "../screens/ReservationListScreen";
+import ReservationCompletionsListScreen from "../screens/ReservationCompletionsListScreen";
 import SettingScreen from "../screens/SettingScreen";
 
 const RootNavigation = StackNavigator(
@@ -21,8 +22,13 @@ const RootNavigation = StackNavigator(
     ReservationList: {
       screen: ReservationListScreen,
       navigationOptions: {
-        title: "지난 예약",
-        gesturesEnabled: false
+        header: null
+      }
+    },
+    ReservationCompletionsList: {
+      screen: ReservationCompletionsListScreen,
+      navigationOptions: {
+        header: null
       }
     },
     Setting: {

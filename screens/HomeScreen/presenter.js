@@ -24,7 +24,7 @@ const HomeScreen = props => (
       </FadeIn>
 
       <View style={styles.buttonGroup}>
-        <TouchableOpacity style={styles.button} onPress={props.reservationList}>
+        <TouchableOpacity style={styles.button} onPress={props.reservationCompletionsList}>
           <Ionicons name={"ios-paper-outline"} color={"#4a4a4a"} size={25} />
           <Text style={styles.buttonText}>지난 예약</Text>
         </TouchableOpacity>
@@ -36,7 +36,7 @@ const HomeScreen = props => (
       </View>
     </View>
 
-    <TouchableOpacity style={styles.reservationGroup}>
+    <TouchableOpacity style={styles.reservationGroup} onPress={props.reservationList}>
       <View style={{ flexDirection: "row" }}>
         <Text style={styles.reservationText}>나의 예약</Text>
         <Text style={styles.reservationCount}>0</Text>
