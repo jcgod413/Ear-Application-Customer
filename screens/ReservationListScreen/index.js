@@ -25,7 +25,7 @@ const ReservationListScreen = props => (
       </TouchableOpacity>
       <View style={styles.titleContainer}>
       <Text style={styles.headerTitle}>진행중인 예약</Text>
-      <Text style={styles.reservationCount}>0</Text>
+      <Text style={styles.reservationCount}>0</Text> 
       </View>
     </View>
   </View>
@@ -34,7 +34,8 @@ const ReservationListScreen = props => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: "#fafafa"
   },
   status: {
     width,
