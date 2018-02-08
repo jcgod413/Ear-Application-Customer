@@ -80,6 +80,16 @@ const ReservationScreen = props => (
       {(() => {
         switch (props.step) {
           case 1:
+            return (
+              <View style={styles.buttonGroup}>
+                <TouchableOpacity
+                  style={styles.nextButton}
+                  onPressOut={props.next}
+                >
+                  <Text style={styles.buttonText}>다음</Text>
+                </TouchableOpacity>
+              </View>
+            );
           case 2:
           case 3:
             return (

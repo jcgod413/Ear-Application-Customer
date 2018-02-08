@@ -9,6 +9,7 @@ import {
   View
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import Reservation from "../../components/Reservation";
 
 const { width, height } = Dimensions.get("window");
 
@@ -24,10 +25,22 @@ const ReservationCompletionsListScreen = props => (
         <Ionicons name={"md-close"} color={"white"} size={24} />
       </TouchableOpacity>
       <View style={styles.titleContainer}>
-      <Text style={styles.headerTitle}>지난 예약</Text>
-      <Text style={styles.reservationCount}>0</Text>
+        <Text style={styles.headerTitle}>지난 예약</Text>
+        <Text style={styles.reservationCount}>1</Text>
       </View>
     </View>
+    <ScrollView>
+      <Reservation
+        status={"complete"}
+        dDay={"D-0"}
+        center={"서초 수화통역센터"}
+        translator={"임윤철 수화통역사"}
+        dateTime={"2018년 1월 12일 12:00 - 15:00"}
+        location={"서울대학병원 이비인후과"}
+        purpose={"의료"}
+        extraMessage={"정기 진료입니다."}
+      />
+    </ScrollView>
   </View>
 );
 
@@ -35,7 +48,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#fafafa"
+    backgroundColor: "#e4e4e4"
   },
   status: {
     width,
@@ -50,12 +63,12 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 26,
     fontWeight: "bold",
-    color: "white",
+    color: "white"
   },
   titleContainer: {
     marginLeft: 20,
     marginTop: 13,
-    flexDirection: 'row',
+    flexDirection: "row"
   },
   close: {
     width: 24,

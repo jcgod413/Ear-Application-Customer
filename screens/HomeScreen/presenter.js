@@ -9,6 +9,7 @@ import {
   Dimensions
 } from "react-native";
 import FadeIn from "react-native-fade-in-image";
+
 import { Ionicons } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");

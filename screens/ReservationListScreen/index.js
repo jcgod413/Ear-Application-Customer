@@ -9,6 +9,7 @@ import {
   View
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import Reservation from "../../components/Reservation";
 
 const { width, height } = Dimensions.get("window");
 
@@ -24,10 +25,30 @@ const ReservationListScreen = props => (
         <Ionicons name={"md-close"} color={"white"} size={24} />
       </TouchableOpacity>
       <View style={styles.titleContainer}>
-      <Text style={styles.headerTitle}>진행중인 예약</Text>
-      <Text style={styles.reservationCount}>0</Text> 
+        <Text style={styles.headerTitle}>진행중인 예약</Text>
+        <Text style={styles.reservationCount}>2</Text>
       </View>
     </View>
+    <ScrollView>
+      <Reservation
+        status={"waiting"}
+        dDay={"D-5"}
+        dateTime={"2018년 1월 12일 12:00 - 15:00"}
+        location={"서울 중앙 지방 법원"}
+        purpose={"법률"}
+        extraMessage={"법률 통역에 능숙한 분이 오셨으면 합니다"}
+      />
+      <Reservation
+        status={"confirm"}
+        dDay={"D-1"}
+        center={"서초 수화통역센터"}
+        translator={"임윤철 수화통역사"}
+        dateTime={"2018년 1월 12일 12:00 - 15:00"}
+        location={"서울대학병원 이비인후과"}
+        purpose={"의료"}
+        extraMessage={"정기 진료입니다."}
+      />
+    </ScrollView>
   </View>
 );
 
@@ -35,7 +56,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#fafafa"
+    backgroundColor: "#e4e4e4"
   },
   status: {
     width,
@@ -50,12 +71,12 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 26,
     fontWeight: "bold",
-    color: "white",
+    color: "white"
   },
   titleContainer: {
     marginLeft: 20,
     marginTop: 13,
-    flexDirection: 'row',
+    flexDirection: "row"
   },
   close: {
     width: 24,
