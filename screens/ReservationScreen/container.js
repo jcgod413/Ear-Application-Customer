@@ -1,18 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ReservationScreen from "./presenter";
+import { Platform } from "react-native";
 import { purposeList } from "../../constants";
+import { Constants, Location, Permissions } from "expo";
 
 class Container extends Component {
   constructor(props) {
     super(props);
     const today = this._getCurrentDate();
     const todayText = this._changeDateToText(today);
-
-    // var openedPurpose = {};
-    // purposeList.map(purpose => {
-    //   openedPurpose[purpose.name] = false;
-    // });
 
     this.state = {
       step: 1,
@@ -29,9 +26,24 @@ class Container extends Component {
       checkedPurpose: "",
       openedPurpose: {},
       extraMessage: "",
-      noti: false
+      noti: false,
+      latitude: 37.78825,
+      longitude: -122.4324,
+      errorMessage: null
     };
   }
+
+  componentWillMount() {
+    if (Platform.OS === "android" && !Constants.isDevice) {
+      this.setState({
+        errorMessage:
+          "Oops, this will not work on Sketch in an Android emulator. Try it on your device!"
+      });
+    } else {
+      this._getLocationAsync();
+    }
+  }
+
   render() {
     return (
       <ReservationScreen
@@ -50,9 +62,30 @@ class Container extends Component {
         pressedPurposeContents={this._pressedPurposeContents}
         inputExtraMessage={this._inputExtraMessage}
         notiSwitched={this._notiSwitched}
+        onRegionChange={this._onRegionChange}
       />
     );
   }
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== "granted") {
+      this.setState({
+        errorMessage: "Permission to access location was denied"
+      });
+    }
+
+    let location = await Location.getCurrentPositionAsync({});
+    this.setState({
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude
+    });
+  };
+  _onRegionChange = region => {
+    this.setState({
+      latitude: region.latitude,
+      longitude: region.longitude
+    });
+  };
   _getCurrentDate = () => {
     var year = new Date().getFullYear();
     var month = new Date().getMonth() + 1;

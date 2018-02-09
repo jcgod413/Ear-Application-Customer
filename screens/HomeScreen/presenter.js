@@ -9,7 +9,7 @@ import {
   Dimensions
 } from "react-native";
 import FadeIn from "react-native-fade-in-image";
-
+import ScrollableTabView from "react-native-scrollable-tab-view";
 import { Ionicons } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
@@ -25,7 +25,10 @@ const HomeScreen = props => (
       </FadeIn>
 
       <View style={styles.buttonGroup}>
-        <TouchableOpacity style={styles.button} onPress={props.reservationCompletionsList}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={props.reservationCompletionsList}
+        >
           <Ionicons name={"ios-paper-outline"} color={"#4a4a4a"} size={25} />
           <Text style={styles.buttonText}>지난 예약</Text>
         </TouchableOpacity>
@@ -37,7 +40,10 @@ const HomeScreen = props => (
       </View>
     </View>
 
-    <TouchableOpacity style={styles.reservationGroup} onPress={props.reservationList}>
+    <TouchableOpacity
+      style={styles.reservationGroup}
+      onPress={props.reservationList}
+    >
       <View style={{ flexDirection: "row" }}>
         <Text style={styles.reservationText}>나의 예약</Text>
         <Text style={styles.reservationCount}>0</Text>
@@ -48,7 +54,12 @@ const HomeScreen = props => (
         size={25}
       />
     </TouchableOpacity>
-    <View style={styles.reservationList} />
+    {/* <View style={styles.reservationList} /> */}
+    <ScrollableTabView>
+      <Text tabLabel="1">hello1</Text>
+      <Text tabLabel="2">hello2</Text>
+      <Text tabLabel="3">hello3</Text>
+    </ScrollableTabView>
     <TouchableOpacity
       style={styles.reservationButton}
       onPress={props.reservation}
