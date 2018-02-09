@@ -10,16 +10,16 @@ const ReservationResultScreen = props => (
       <Text style={styles.contents}>
         {props.selectedDateText +
           "  " +
-          (props.startHour < 10 ? "0" : null) +
+          (props.startHour < 10 ? "0" : "") +
           props.startHour +
           ":" +
-          (props.startMinutes < 10 ? "0" : null) +
+          (props.startMinutes < 10 ? "0" : "") +
           props.startMinutes +
           " - " +
-          (props.endHour < 10 ? "0" : null) +
+          (props.endHour < 10 ? "0" : "") +
           props.endHour +
           ":" +
-          (props.endMinutes < 10 ? "0" : null) +
+          (props.endMinutes < 10 ? "0" : "") +
           props.endMinutes}
       </Text>
       <Text style={styles.title}>예약 장소</Text>
