@@ -17,11 +17,6 @@ const IntroScreen = props => (
       resizeMode={Image.resizeMode.stretch}
       style={styles.background}
     >
-      <Image
-        source={require("../../assets/images/logo-white.png")}
-        resizeMode={Image.resizeMode.cover}
-        style={styles.logo}
-      />
       <View style={styles.buttonGroup}>
         <TouchableOpacity
           style={styles.button1}
@@ -36,7 +31,6 @@ const IntroScreen = props => (
           <Text style={styles.buttonText2}>회원가입</Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.copyright}>@2017 sullivan</Text>
     </ImageBackground>
   </View>
 );
@@ -50,17 +44,11 @@ const styles = StyleSheet.create({
     flex: 1,
     width: undefined,
     height: undefined,
-    backgroundColor: "transparent",
     justifyContent: "center",
     alignItems: "center"
   },
-  logo: {
-    width: 296,
-    height: 205,
-    marginTop: 109
-  },
   buttonGroup: {
-    marginTop: 81
+    marginTop: 250
   },
   button1: {
     width: 320,
@@ -91,15 +79,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#ffffff"
   },
-  copyright: {
-    fontSize: 12,
-    marginTop: 81,
-    fontWeight: "normal",
-    fontStyle: "normal",
-    letterSpacing: 0,
-    textAlign: "center",
-    color: "#ffffff"
-  }
 });
 
 export default IntroScreen;

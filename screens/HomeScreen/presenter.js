@@ -46,7 +46,7 @@ const HomeScreen = props => (
     >
       <View style={{ flexDirection: "row" }}>
         <Text style={styles.reservationText}>나의 예약</Text>
-        <Text style={styles.reservationCount}>0</Text>
+        <Text style={styles.reservationCount}>2</Text>
       </View>
       <Ionicons
         name={"ios-arrow-forward-outline"}
@@ -55,11 +55,12 @@ const HomeScreen = props => (
       />
     </TouchableOpacity>
     {/* <View style={styles.reservationList} /> */}
-    <ScrollableTabView>
+    <Image style={styles.reservationList} source={require("../../assets/images/temp_reservation.png")}/>
+    {/* <ScrollableTabView style={{height: 260}}>
       <Text tabLabel="1">hello1</Text>
       <Text tabLabel="2">hello2</Text>
       <Text tabLabel="3">hello3</Text>
-    </ScrollableTabView>
+    </ScrollableTabView> */}
     <TouchableOpacity
       style={styles.reservationButton}
       onPress={props.reservation}

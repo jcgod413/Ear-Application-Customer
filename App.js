@@ -9,8 +9,8 @@ import AppContainer from "./components/AppContainer";
 
 const { persistor, store } = configureStore();
 
-store.dispatch({ type: "LOG_IN", token: "" }); // auto login
-// store.dispatch({ type: "LOG_OUT" }); // auto logout
+// store.dispatch({ type: "LOG_IN", token: "" }); // auto login
+store.dispatch({ type: "LOG_OUT" }); // auto logout
 
 class App extends React.Component {
   state = {
